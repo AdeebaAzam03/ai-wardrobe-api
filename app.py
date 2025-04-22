@@ -1,7 +1,10 @@
 from flask import Flask, request, jsonify
 from outfit_recommender import get_recommendations
+from flask_cors import CORS
+import os
 
 app = Flask(__name__)
+CORS(app)  # 🔥 Allows Flutter web access
 
 @app.route('/')
 def home():
@@ -16,9 +19,6 @@ def recommend():
     outfits = get_recommendations(weather, wardrobe)
     return jsonify({'outfits': outfits})
 
-import os
-
 if __name__ == '__main__':
-    port = int(os.environ.get('PORT', 5000))
+    port = int(os.environ.get('PORT', 5000))  # ✅ Required for Render
     app.run(host='0.0.0.0', port=port)
-
