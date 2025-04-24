@@ -3,3 +3,8 @@ flask
 torch
 tensorflow
 scikit-learn
+Flask
+flask_cors
+tensorflow
+numpy
+pillow
