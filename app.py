@@ -15,8 +15,9 @@ def recommend():
     data = request.json
     weather = data.get('weather')
     wardrobe = data.get('wardrobe')
+    preferences = data.get('preferences')  # 🔥 use this in AI logic
 
-    outfits = get_recommendations(weather, wardrobe)
+    outfits = get_recommendations(weather, wardrobe, preferences)
     return jsonify({'outfits': outfits})
 
 if __name__ == '__main__':
